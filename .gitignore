@@ -22,3 +22,4 @@ build/
 .idea/
 *.iml
 .gitignore
+*.exe
