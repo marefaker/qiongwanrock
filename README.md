@@ -17,8 +17,8 @@
 ## 编译与运行（Windows 推荐）
 - 依赖：支持 C++11 的编译器，Windows API（源码使用了 Windows.h、system("cls") 等），建议在 Windows 环境下使用 MinGW 或 Visual Studio。
 - 示例（使用 g++ / MinGW）:
-    - g++ -std=c++11 -O2 -o string_helper.exe main.cpp
-    - ./string_helper.exe
+    - g++ -std=c++11 -O2 -o ffr.exe fast_fret_reference.cpp
+    - ./ffr.exe
 - 交互说明：
     - 启动后按 T 显示教程、C 进入计算、Q 或回车退出。
     - 计算界面会提示输入：琴弦长（mm）、弦钮直径（mm）、琴弦规格（例如 010E）。直接回车使用默认值。
@@ -45,4 +45,5 @@
 - 简洁快速参考：每根弦显示最合适的品位区间（例如 “弦枕 - 第2品”）。
 
 ## 许可证与贡献
+
 - 本项目为开源；欢迎修改弦规、改进算法或添加平台兼容性。请在提交改动时附上简短说明与测试用例。
