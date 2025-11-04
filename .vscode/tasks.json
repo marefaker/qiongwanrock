@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe 生成活动文件", // 此名称用于在launch.json中关联
+            "command": "C:\\mingw64\\bin\\g++.exe", // 请确保路径正确
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "*.cpp",
+                "-o",
+                "${fileDirname}\\project.exe",
+                "-static",
+                "-static-libgcc",
+                "-static-libstdc++",
+                "-fexec-charset=GBK",      // 强制使用GBK编码
+                "-finput-charset=UTF-8"    // 源代码是UTF-8
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

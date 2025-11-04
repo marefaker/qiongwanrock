@@ -1,0 +1,46 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}\\project.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe", // 请修改为您的路径
+            "preLaunchTask": "C/C++: g++.exe 生成活动文件", // 此名称需与tasks.json中的label一致
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}
+
+/* 记得在用户级别settings.json中添加以下配置以统一中文编码格式
+
+    // 设置终端默认使用UTF-8
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": "cmd.exe",
+            "args": ["/K", "chcp 65001 >nul"]
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    
+    // 设置文件默认编码为UTF-8
+    "files.encoding": "utf8",
+    
+    // 自动检测文件编码
+    "files.autoGuessEncoding": true
+
+
+*/
