@@ -9,7 +9,7 @@
 #include <map>
 #include <sstream>
 #include <cstring>
-#include <Windows.h>
+// #include <Windows.h>
 #include "fast_fret_reference.h"
 
 using namespace std;
