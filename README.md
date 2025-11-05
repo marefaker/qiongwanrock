@@ -9,10 +9,74 @@
 - 内置常见电吉他 / 民谣吉他的弦规集合（可在源码中扩展）。
 
 ## 算法简介
-- 预留长度公式：L = (n - 0.5) × π × (弦钮直径 + 琴弦直径)  
-    （n 为推荐缠绕圈数）
-- 品位位置（自弦枕起）采用十二平均律公式：pos(fret) = scaleLength × (1 - 2^(-fret/12))
-- 给定预留长度后，在 0..22 品之间枚举区间，计算区间长度与目标长度误差，按位置与误差惩罚合成评分并排序，输出最优若干项与快速参考表。
+
+### 预留长度计算
+基于几何模型计算在弦钮上缠绕指定圈数所需的琴弦长度：
+
+```cpp
+
+double calculateReservedLength(double n, double D, double d) {
+    const double PI = 3.14159265358979323846;
+    return (n - 0.5) * PI * (D + d);
+}
+
+```
+
+**公式**：`L = (n - 0.5) × π × (弦钮直径 + 琴弦直径)`  
+- `n`：目标缠绕圈数
+- `D`：弦钮直径
+- `d`：琴弦直径
+- `-0.5`：锁弦法消耗的等效半圈长度
+
+### 品位位置计算
+基于十二平均律计算从弦枕到各品柱的距离：
+
+```cpp
+
+double calculateFretPosition(int fret, double scaleLength) {
+    return scaleLength * (1.0 - 1.0 / pow(2.0, fret / 12.0));
+}
+
+```
+
+**公式**：`pos(fret) = scaleLength × (1 - 2^(-fret/12))`  
+- `fret`：品位数（0 = 弦枕）
+- `scaleLength`：吉他有效弦长
+
+### 优化匹配算法
+通过多目标优化在品位区间中找到最佳视觉参考：
+
+```cpp
+
+// 代价函数：平衡误差与操作便利性
+double calculateScore(double positionPenalty, double errorPenalty,
+                    double positionWeight = 0.5, double errorWeight = 0.5) {
+    return positionPenalty * positionWeight + errorPenalty * errorWeight;
+}
+
+// 遍历所有可能的品位区间组合
+for (int i = 0; i <= MAX_FRET; i++) {
+    for (int j = i + 1; j <= MAX_FRET; j++) {
+        double distance = fretPositions[j] - fretPositions[i];
+        double error = distance - targetLength;
+        
+        double positionPenalty = calculatePositionPenalty(j); // 偏好低品位
+        double errorPenalty = calculateErrorPenalty(error);   // 控制精度
+        double score = calculateScore(positionPenalty, errorPenalty);
+        
+        // 记录最优解...
+    }
+}
+
+```
+
+**算法流程**：
+1. 遍历所有品位区间组合 `[i, j]`
+2. 计算区间物理长度与目标长度的误差
+3. 应用位置惩罚（偏好操作便利的低品位）和误差惩罚（控制匹配精度）
+4. 按综合评分排序，输出最优参考区间
+
+该算法确保在**精度**与**操作便利性**间取得最佳平衡，为换弦提供直观可靠的视觉参考。
 
 ## 编译与运行（Windows 推荐）
 - 依赖：支持 C++11 的编译器，Windows API（源码使用了 Windows.h、system("cls") 等），建议在 Windows 环境下使用 MinGW 或 Visual Studio。
