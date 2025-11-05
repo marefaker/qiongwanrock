@@ -17,8 +17,12 @@
 ## 编译与运行（Windows 推荐）
 - 依赖：支持 C++11 的编译器，Windows API（源码使用了 Windows.h、system("cls") 等），建议在 Windows 环境下使用 MinGW 或 Visual Studio。
 - 示例（使用 g++ / MinGW）:
+
+```
     - g++ -std=c++11 -O2 -o ffr.exe *.cpp
     - ./ffr.exe
+```
+
 - 交互说明：
     - 启动后按 T 显示教程、C 进入计算、Q 或回车退出。
     - 计算界面会提示输入：琴弦长（mm）、弦钮直径（mm）、琴弦规格（例如 010E）。直接回车使用默认值。
@@ -58,7 +62,7 @@
 
 ### 核心设备
 
-*   **吉他** （推荐 Epiphone Les Paul Special-II 或 Tribute，干摇滚就得是 LP 口牙）
+*   **吉他** （推荐从 Epiphone Les Paul Special-II 或 Tribute 入门，干摇滚就得是 LP 口牙）
 *   **综合效果器音箱**（推荐 Joyo JAM BUDDY 和 JAM BUDDY II。一代傻瓜式操作无脑买，二代功能多）
 *   **3.5mm监听耳机**（你也不想被室友撅罢，一定不能买带麦克风的。6.35mm监听耳机泛用性太差，强烈反对选购）
 *   **6.35mm公公音频线**（若不选购 JA-01，至少3m长，一般买音箱会赠）
