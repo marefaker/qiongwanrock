@@ -267,5 +267,4 @@
 *   [IBANEZ 吉他旗舰店](https://mall.jd.com/index-12566337.html)
 *   [卓乐 JOYO 乐器旗舰店](https://mall.jd.com/index-10703887.html)
 *   [艺钛客乐器专营店](https://mall.jd.com/index-633987.html)
-*   [莫森京东自营旗舰店](https://mall.jd.com/index-1000085021.html)
 *   [爱丽丝（Alice）官方旗舰店](https://mall.jd.com/index-18910428.html)
