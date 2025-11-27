@@ -105,7 +105,7 @@ void calculate() {
     cout << "民谣吉他(A): 011A, 012A" << endl;
     cout << "请按提示输入您的吉他参数（直接回车使用默认值）:" << endl;
     cout << "----------------------------------------" << endl;
-    cout << "吉他弦长 (mm) [默认: " << defaultScaleLength << "*（电吉他典型值），Les Paul 和 SG 则为 628.65 mm，民谣吉他多为 650 mm]: ";
+    cout << "吉他弦长 (mm) [默认: " << defaultScaleLength << "（电吉他典型值），Les Paul 和 SG 则为 628.65 mm，民谣吉他多为 650 mm]: ";
     string input;
     getline(cin, input);
     if (input.empty()) {

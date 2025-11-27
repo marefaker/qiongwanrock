@@ -9,14 +9,14 @@
 #include <map>
 #include <sstream>
 #include <cstring>
-// #include <Windows.h>
+#include <Windows.h>
 #include "fast_fret_reference.h"
 
 using namespace std;
 
 int main() {
     
-    // SetConsoleOutputCP(65001);
+    SetConsoleOutputCP(65001);
 
     while (1) {
 	    system("cls"); // 清屏
@@ -35,7 +35,7 @@ int main() {
         }
         else if (operation == 'C' || operation == 'c') {
             system("cls"); // 清屏
-            cin.ignore(65535, '\n'); // 清除输入缓冲区
+            // cin.ignore(65535, '\n'); // 清除输入缓冲区
             calculate();
             continue; 
         }  
